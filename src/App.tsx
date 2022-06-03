@@ -1,3 +1,10 @@
+import List from "./components/List";
+import Text from "./components/Text";
+import Button from "./components/Button";
+import Header from "./components/Header";
+import ListItem from "./components/ListItem";
+import Container from "./components/Container";
+
 import { useLocation } from "./hooks/location";
 import { FELocationType } from "./types/location";
 
@@ -6,29 +13,28 @@ function App() {
   console.log({ locations });
 
   return (
-    <div>
-      <h1>Locations Lister</h1>
-      <button onClick={getLocations}>Get Locations</button>
+    <Container>
+      <Header title="Locations Lister" />
+      <Button title="Get Locations" onClick={getLocations} />
       {locations ? (
-        <ul>
+        <List>
           {locations.map(
             ({ id, name, type, details, address }: FELocationType) => (
-              <li key={id}>
-                <h3>{name}</h3>
-                <p>Details: {details}</p>
-                <p>Type: {type}</p>
-                <p>
-                  {address.street}, {address.zip} {address.city},{" "}
-                  {address.state}.
-                </p>
-              </li>
+              <ListItem key={id}>
+                <Text>{name}</Text>
+                <Text>{`Details: ${details}`}</Text>
+                <Text>{`Type: ${type}`}</Text>
+                <Text>
+                  {`${address.street}, ${address.zip} ${address.city}, ${address.state}.`}
+                </Text>
+              </ListItem>
             )
           )}
-        </ul>
+        </List>
       ) : (
         <p>Getting locations ...</p>
       )}
-    </div>
+    </Container>
   );
 }
 
