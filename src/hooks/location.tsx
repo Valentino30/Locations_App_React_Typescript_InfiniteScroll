@@ -6,6 +6,7 @@ import {
   createContext,
 } from "react";
 import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 
 import { getLocationsRequest } from "../api/location";
 import { LocationContextType, FELocationType } from "../types/location";
@@ -31,7 +32,7 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
     try {
       const locations = await getLocationsRequest();
       if (locations.length === 0) {
-        alert("No locations found 🤔");
+        toast.error("No locations found 🤔");
         setLocations([]);
       } else {
         setLocations(locations);
@@ -39,7 +40,7 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
     } catch (error) {
       error instanceof AxiosError &&
         console.log({ error: error?.response?.statusText });
-      alert("Something went wrong 😬");
+      toast.error("Something went wrong 😬");
       setLocations([]);
     }
   }, []);
