@@ -1,9 +1,9 @@
 import { StyledHeader } from "./styles";
 
 type HeaderProps = {
-  title: string;
+  children: string;
 };
 
-export default function Header({ title }: HeaderProps) {
-  return <StyledHeader>{title}</StyledHeader>;
+export default function Header({ children }: HeaderProps) {
+  return <StyledHeader>{children}</StyledHeader>;
 }

@@ -14,8 +14,8 @@ function App() {
 
   return (
     <Container>
-      <Header title="Locations Lister" />
-      <Button title="Get Locations" onClick={getLocations} />
+      <Header>Locations Lister</Header>
+      <Button onClick={getLocations}>Get Locations</Button>
       {locations ? (
         <List>
           {locations.map(
@@ -32,7 +32,7 @@ function App() {
           )}
         </List>
       ) : (
-        <p>Getting locations ...</p>
+        <Text>Getting locations ...</Text>
       )}
     </Container>
   );
