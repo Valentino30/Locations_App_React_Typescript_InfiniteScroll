@@ -1,4 +1,4 @@
-export type LocationType = {
+export type BELocationType = {
   locationId: string;
   locationName: string;
   locationDetails: string;
@@ -11,7 +11,20 @@ export type LocationType = {
   };
 };
 
+export type FELocationType = {
+  id: string;
+  name: string;
+  details: string;
+  type: string;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+};
+
 export type LocationContextType = {
-  locations: LocationType[] | [] | false;
+  locations: FELocationType[] | [] | false;
   getLocations: () => void;
 };

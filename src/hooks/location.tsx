@@ -5,9 +5,10 @@ import {
   useCallback,
   createContext,
 } from "react";
+import { AxiosError } from "axios";
 
-import { LocationContextType, LocationType } from "../types/location";
 import { getLocationsRequest } from "../api/location";
+import { LocationContextType, FELocationType } from "../types/location";
 
 const defaultLocationContext = {
   getLocations: () => {},
@@ -23,7 +24,7 @@ export const useLocation = () => {
 };
 
 export const LocationProvider = ({ children }: { children: ReactNode }) => {
-  const [locations, setLocations] = useState<LocationType[] | [] | false>([]);
+  const [locations, setLocations] = useState<FELocationType[] | [] | false>([]);
 
   const getLocations = useCallback(async () => {
     setLocations(false);
@@ -36,6 +37,8 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
         setLocations(locations);
       }
     } catch (error) {
+      error instanceof AxiosError &&
+        console.log({ error: error?.response?.statusText });
       alert("Something went wrong 😬");
       setLocations([]);
     }
