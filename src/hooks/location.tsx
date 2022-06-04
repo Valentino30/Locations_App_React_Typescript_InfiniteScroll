@@ -34,8 +34,6 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(false);
   const [locations, setLocations] = useState<FELocationType[] | []>([]);
   const [totalLocations, setTotalLocations] = useState(0);
-  console.log({ locations });
-  console.log({ totalLocations });
 
   const getLocations = useCallback(async () => {
     setLoading(true);

@@ -1,10 +1,15 @@
 import { StyledHeader } from "./style";
 
-type HeaderProps = {
+export type HeaderProps = {
   children: string;
-  as?: "h1" | "h2" | "h3";
+  capitalize?: boolean;
+  as?: "h1" | "h2" | "h3" | "h4";
 };
 
-export default function Header({ as, children }: HeaderProps) {
-  return <StyledHeader as={as}>{children}</StyledHeader>;
+export default function Header({ as, children, capitalize }: HeaderProps) {
+  return (
+    <StyledHeader as={as} capitalize={capitalize}>
+      {children}
+    </StyledHeader>
+  );
 }

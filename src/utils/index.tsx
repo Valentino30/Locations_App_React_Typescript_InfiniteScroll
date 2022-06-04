@@ -1,4 +1,4 @@
-export const dalay = (milliseconds: number) => {
+export const delay = (milliseconds: number) => {
   return new Promise(function (resolve) {
     setTimeout(resolve, milliseconds);
   });
@@ -8,7 +8,7 @@ export const getFakePaginatedLocationsRequest = async (
   start: number,
   limit: number
 ) => {
-  await dalay(2000);
+  await delay(1500);
 
   const paginatedLocations = [...Array(start + limit).keys()]
     .filter((location) => ![...Array(start).keys()].includes(location))
