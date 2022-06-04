@@ -4,7 +4,7 @@ export const delay = (milliseconds: number) => {
   });
 };
 
-export const getFakePaginatedLocationsRequest = async (
+export const getPaginatedLocationsMockRequest = async (
   start: number,
   limit: number
 ) => {
@@ -28,4 +28,19 @@ export const getFakePaginatedLocationsRequest = async (
   const numberOfLocations = 100;
 
   return { paginatedLocations, numberOfLocations };
+};
+
+export const generateMockItems = (numberOfItems: number) => {
+  return [...Array(numberOfItems).keys()].map((itemId) => ({
+    id: `${itemId}`,
+    name: `Location ${itemId}`,
+    details: `Details ${itemId}`,
+    type: `Type ${itemId}`,
+    address: {
+      street: `Street ${itemId}`,
+      zip: `Zip ${itemId}`,
+      city: `City ${itemId}`,
+      state: `State ${itemId}`,
+    },
+  }));
 };
