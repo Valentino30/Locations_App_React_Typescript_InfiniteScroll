@@ -9,7 +9,7 @@ Here is how to get started with the project:
 - Request access to CORS Anywhere demo server [here](https://cors-anywhere.herokuapp.com/corsdemo)
 - Clone the repo locally running `git clone git@github.com:Valentino30/Locations_List_App_React_Typescript_InfiniteScroll.git`
 - Open the project in your favorite IDE (i.e. [VSCode](https://code.visualstudio.com/))
-- Add your API key to the .env.example file and rename it as .env
+- Add YOUR_CONFIDENCE_USERNAME to the .env.example file and rename it as .env
 - Run the command `yarn` in the project directory to install all dependencies
 - Run the command `yarn start` in the project directory to launch the app
 - Run the command `yarn test` in the project directory to run all unit tests
