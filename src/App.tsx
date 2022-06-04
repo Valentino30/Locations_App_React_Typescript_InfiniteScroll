@@ -14,14 +14,14 @@ function App() {
 
   return (
     <Container>
-      <Header>Locations Lister</Header>
+      <Header as="h1">Locations Lister</Header>
       <Button onClick={getLocations}>Get Locations</Button>
       {locations ? (
         <List>
           {locations.map(
             ({ id, name, type, details, address }: FELocationType) => (
               <ListItem key={id}>
-                <Text>{name}</Text>
+                <Header as="h3">{name}</Header>
                 <Text>{`Details: ${details}`}</Text>
                 <Text>{`Type: ${type}`}</Text>
                 <Text>

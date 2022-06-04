@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  background-color: royalblue;
+  background-color: chocolate;
   text-transform: uppercase;
   width: fit-content;
   border-radius: 4px;
@@ -9,10 +9,10 @@ export const StyledButton = styled.button`
   cursor: pointer;
   padding: 10px;
   border: none;
-  color: white;
+  color: inherit;
   height: 50px;
 
   &:hover {
-    background-color: dodgerblue;
+    background-color: coral;
   }
 `;

@@ -19,7 +19,7 @@ export const getLocationsRequest = async () => {
     }: BELocationType) => ({
       id: locationId,
       name: locationName,
-      details: locationDetails,
+      details: locationDetails || "NA",
       type: locationType,
       address: {
         street: address.addressLine1,
