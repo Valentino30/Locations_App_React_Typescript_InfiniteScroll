@@ -25,6 +25,8 @@ export type FELocationType = {
 };
 
 export type LocationContextType = {
-  locations: FELocationType[] | [] | false;
+  getPaginatedLocations: (start: number, limit: number) => void;
+  locations: FELocationType[] | [];
   getLocations: () => void;
+  loading: boolean;
 };

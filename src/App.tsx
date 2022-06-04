@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import List from "./components/List";
 import Text from "./components/Text";
 import Button from "./components/Button";
@@ -9,14 +11,19 @@ import { useLocation } from "./hooks/location";
 import { FELocationType } from "./types/location";
 
 function App() {
-  const { getLocations, locations } = useLocation();
-  console.log({ locations });
+  const { getLocations, getPaginatedLocations, locations, loading } =
+    useLocation();
+
+  useEffect(() => {
+    getPaginatedLocations(0, 3);
+  }, [getPaginatedLocations]);
 
   return (
     <Container>
       <Header as="h1">Locations Lister</Header>
       <Button onClick={getLocations}>Get Locations</Button>
-      {locations ? (
+      {loading && <Text>Getting locations ...</Text>}
+      {locations.length !== 0 && (
         <List>
           {locations.map(
             ({ id, name, type, details, address }: FELocationType) => (
@@ -31,8 +38,6 @@ function App() {
             )
           )}
         </List>
-      ) : (
-        <Text>Getting locations ...</Text>
       )}
     </Container>
   );
