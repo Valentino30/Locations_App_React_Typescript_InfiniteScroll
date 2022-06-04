@@ -17,6 +17,7 @@ import { LocationContextType, FELocationType } from "../types/location";
 const defaultLocationContext = {
   getPaginatedLocations: (start: number, limit: number) => {},
   getLocations: () => {},
+  totalLocations: 0,
   loading: false,
   locations: [],
 };
@@ -91,7 +92,13 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <LocationContext.Provider
-      value={{ getLocations, getPaginatedLocations, locations, loading }}
+      value={{
+        loading,
+        locations,
+        getLocations,
+        totalLocations,
+        getPaginatedLocations,
+      }}
     >
       {children}
     </LocationContext.Provider>
